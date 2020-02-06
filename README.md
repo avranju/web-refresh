@@ -7,6 +7,13 @@ waiting for the Unix signal `SIGUSR1` to show up and respond by refreshing the p
 You'll need to download the [geckodriver](https://github.com/mozilla/geckodriver/releases)
 program to act as the WebDriver server that automates the browser instance.
 
+To install this tool you'll need a valid [Rust installation](https://rustup.rs/). Once
+that's in place you can run this to install:
+
+```shell
+cargo install --git https://github.com/avranju/web-refresh.git
+```
+
 This is useful when hacking away on a static website that you want to auto-reload
 whenever the source files are changed. In combination with something like
 [watchexec](https://crates.io/crates/watchexec) this can be used like so:

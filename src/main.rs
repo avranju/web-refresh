@@ -5,8 +5,8 @@ use std::thread;
 use crossbeam_channel as channel;
 use log::info;
 use signal_hook::{iterator::Signals, SIGINT, SIGUSR1};
-use webdriver_client::{firefox::GeckoDriver, messages::NewSessionCmd, Driver};
 use structopt::StructOpt;
+use webdriver_client::{firefox::GeckoDriver, messages::NewSessionCmd, Driver};
 
 #[derive(StructOpt, Debug)]
 #[structopt(name = "web-refresh")]
@@ -34,11 +34,11 @@ fn main() -> Result<()> {
             SIGUSR1 => {
                 info!("Reloading {}", &opt.url);
                 session.refresh().unwrap()
-            },
+            }
             SIGINT => {
                 info!("Quitting!");
-                break
-            },
+                break;
+            }
             _ => unreachable!(),
         }
     }
